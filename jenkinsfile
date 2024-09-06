@@ -9,17 +9,16 @@ pipeline{
                 always{
                     mail to: "sebastianedge50@gmail.com",
                     subject: "Build Status Email",
-                    body: "Build was Successful!"
-                    
-                }
-            }
-        }
+                    body: "Build log attached!"
+              }
+         }
+    }
     stage("Test"){
         steps{
           echo "Testing ..."
         }
     }
-    Stage("Deploy"){
+    stage("Deploy"){
         steps{
           echo "Deploying ..."
         }
