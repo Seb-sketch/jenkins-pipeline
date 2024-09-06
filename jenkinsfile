@@ -13,20 +13,40 @@ pipeline{
               }
          }
     }
-    stage("Test"){
-        steps{
-          echo "Testing ..."
+    stage("Unit and Integration Tests") {
+            steps {
+                echo "Running unit tests with JUnit and integration tests with Selenium..."
+            }
+        }
+        
+        stage("Code Analysis") {
+            steps {
+                echo "Performing code analysis using SonarQube..."
+            }
+        }
+        
+        stage("Security Scan") {
+            steps {
+                echo "Performing security scan using OWASP ZAP..."
+            }
+        }
+        
+        stage("Deploy to Staging") {
+            steps {
+                echo "Deploying application to staging environment (AWS EC2)..."
+            }
+        }
+        
+        stage("Integration Tests on Staging") {
+            steps {
+                echo "Running integration tests on staging environment using Selenium..."
+            }
+        }
+        
+        stage("Deploy to Production") {
+            steps {
+                echo "Deploying application to production environment (AWS EC2)..."
+            }
         }
     }
-    stage("Deploy"){
-        steps{
-          echo "Deploying ..."
-        }
-      }
-    stage("Complete"){
-        steps{
-          echo "Completing ..."
-        }
-     }
-   }
 }
